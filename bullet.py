@@ -7,7 +7,6 @@ class Bullet(Sprite):
 
     def __init__(self, ai_settings, screen, ship):
         """在飞船所处的位置创建一个子弹对象"""
-
         super(Bullet, self).__init__()
         self.screen = screen
 
@@ -22,11 +21,12 @@ class Bullet(Sprite):
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
 
+    # 如果你update函数定义的有args参数 用update函数时一定要传参数 如果想传参数 定义update函数时就不要定义args参数
     def update(self):
         """向上移动子弹"""
         # 更新表示子弹位置的小数值
         self.y -= self.speed_factor
-        # 更新表示子弹的rect位置
+        # 更新表示子弹位置的rect位置
         self.rect.y = self.y
 
     def draw_bullet(self):
